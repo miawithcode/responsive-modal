@@ -55,14 +55,16 @@ const App = () => {
                       variants={{
                         closed: {
                           opacity: "var(--opacity-from)",
-                          scale: "var(--scale-from)",
+                          scale: "var(--scale-from, 1)",
+                          y: "var(--y-from, 0px)",
                         },
                         open: {
                           opacity: "var(--opacity-to)",
-                          scale: "var(--scale-to)",
+                          scale: "var(--scale-to, 1)",
+                          y: "var(--y-to, 0px)",
                         },
                       }}
-                      className="relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl [--opacity-from:0%] [--opacity-to:100%] [--scale-from:80%] [--scale-to:100%] sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
+                      className="relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl [--opacity-from:0%] [--opacity-to:100%] max-sm:[--y-from:16px] max-sm:[--y-to:0px] sm:my-8 sm:w-full sm:max-w-lg sm:p-6 sm:[--scale-from:80%] sm:[--scale-to:100%]"
                     >
                       <div className="sm:flex sm:items-start">
                         <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
