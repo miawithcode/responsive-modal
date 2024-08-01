@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,15 +24,16 @@ const App = () => {
           Open
         </button>
       </div>
-      {isOpen && (
-        <MotionConfig
-          transition={{
-            type: "spring",
-            bounce: 0.3,
-            duration: isOpen ? 0.7 : 0.4,
-          }}
-        >
-          <AnimatePresence initial={false}>
+
+      <MotionConfig
+        transition={{
+          type: "spring",
+          bounce: 0.3,
+          duration: isOpen ? 0.7 : 0.4,
+        }}
+      >
+        <AnimatePresence initial={false}>
+          {isOpen && (
             <Dialog
               as={motion.div}
               initial="closed"
@@ -52,9 +53,23 @@ const App = () => {
                     <DialogPanel
                       as={motion.div}
                       variants={{
-                        closed: { opacity: 0, scale: 0.9 },
-                        open: { opacity: 1, scale: 1 },
+                        closed: {
+                          opacity: "var(--opacity-from)",
+                          scale: "var(--scale-from)",
+                        },
+                        open: {
+                          opacity: "var(--opacity-to)",
+                          scale: "var(--scale-to)",
+                        },
                       }}
+                      style={
+                        {
+                          "--scale-from": "80%",
+                          "--scale-to": "100%",
+                          "--opacity-from": "0%",
+                          "--opacity-to": "100%",
+                        } as CSSProperties
+                      }
                       className="relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
                     >
                       <div className="sm:flex sm:items-start">
@@ -96,9 +111,9 @@ const App = () => {
                 </div>
               </motion.div>
             </Dialog>
-          </AnimatePresence>
-        </MotionConfig>
-      )}
+          )}
+        </AnimatePresence>
+      </MotionConfig>
     </div>
   );
 };
