@@ -62,15 +62,7 @@ const App = () => {
                           scale: "var(--scale-to)",
                         },
                       }}
-                      style={
-                        {
-                          "--scale-from": "80%",
-                          "--scale-to": "100%",
-                          "--opacity-from": "0%",
-                          "--opacity-to": "100%",
-                        } as CSSProperties
-                      }
-                      className="relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
+                      className="relative overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl [--opacity-from:0%] [--opacity-to:100%] [--scale-from:80%] [--scale-to:100%] sm:my-8 sm:w-full sm:max-w-lg sm:p-6"
                     >
                       <div className="sm:flex sm:items-start">
                         <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-green-100 sm:mx-0 sm:h-10 sm:w-10">
