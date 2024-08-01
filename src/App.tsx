@@ -1,7 +1,7 @@
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/24/outline";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
-import { CSSProperties, useState } from "react";
+import { useState } from "react";
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
